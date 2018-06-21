@@ -1,0 +1,25 @@
+<div class="container">
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand mx-auto" href="/">Chat Grupal</a>
+  </nav>
+
+  <nav class="navbar navbar-expand-md navbar-light bg-light" id="nav">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link" *ngIf="!authService.logeado()" [routerLink]="['/events']">Events</a>
+      <!-- <a class="nav-item nav-link" [routerLink]="['/special']">Special</a> -->
+      <a class="nav-item nav-link" [routerLink]="['/chat']">Chat</a>
+      <a class="nav-item nav-link" *ngIf="!authService.logeado()" [routerLink]="['/login']">Iniciar Sesión</a>
+      <a class="nav-item nav-link" *ngIf="!authService.logeado()" [routerLink]="['/register']">Registro</a>
+      <a class="nav-item nav-link" *ngIf="authService.logeado()" (click)="authService.logOut()" style="cursor: pointer;">Salir</a>
+    </div>
+  </div>
+</nav>
+
+  <router-outlet></router-outlet>
+
+</div>

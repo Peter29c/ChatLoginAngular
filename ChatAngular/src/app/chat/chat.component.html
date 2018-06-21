@@ -1,0 +1,55 @@
+<div class="row mt-4">
+
+  <!-- CUADRO DE CHAT -->
+  <div class="col-md-6 offset-md-1">
+    <div class="card">
+      <div class="card-header">
+        <h4>Sala del Chat</h4>
+      </div>
+      <div id="chat" class="card-body">
+        <!-- <p *ngFor="let msg of msgs">
+          <strong>{{msg.name}}: </strong>{{msg.msg}}
+        </p> -->
+        <p *ngFor="let oldmessage of oldmessages" class="text-secondary">
+          {{oldmessage.email}}: {{oldmessage.message}}
+        </p>
+        <p *ngFor="let message of messages">
+          <strong>{{message.email}}: </strong>{{message.message}}
+        </p>
+      </div>
+      <form id="messageForm" class="card-footer">
+        <div class="input-group">
+          <input [(ngModel)]="message" (keyup)="$event.keyCode == 13 && sendMessage()" [ngModelOptions]="{standalone: true}" type="text" class="form-control">
+          <div class="input-group-append ">
+            <button (click)="sendMessage()" type="submit" class="btn btn-dark">
+              <i class="fas fa-location-arrow"></i>
+              Envíar
+            </button>
+              <!-- <input type="submit" class="btn btn-dark"> -->
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- CUADRO DE USUARIOS -->
+  <div class="col-md-3">
+
+    <div class="card">
+
+      <div class="card-header">
+        <h3>Usuarios</h3>
+      </div>
+      <div class="card-body">
+        <div id="usernames">
+          <p *ngFor="let user of users">
+            <i class="fas fa-user text-success"></i>
+            <strong> {{user}}</strong>
+          </p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>

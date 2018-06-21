@@ -1,0 +1,25 @@
+<div class="card col-md-4 mt-5 mx-auto p-0" id="nickWrap">
+  <div class="card-header">
+    <h4 class="text-center">Registro:</h4>
+  </div>
+  <!-- <p id="nickError" class="mt-1"></p> -->
+  <div class="card-body">
+      <form id="nickForm" class="">
+        <label for="email" [class.text-danger]="email.invalid && email.touched">Usuario</label>
+        <input [class.border-danger]="email.invalid && email.touched" [(ngModel)]="registerUserData.email" #email="ngModel" name="email" type="text" id="nickname" class="form-control" required email>
+        <span *ngIf="email.errors && email.errors.email && email.touched" class="text-danger">Correo invalido.<br></span>
+        <span *ngIf="email.errors && email.errors.required && email.touched" class="text-danger">El correo es obligatorio.<br></span>
+
+        <label for="password" [class.text-danger]="password.invalid && password.touched">Contrsaeña</label>
+        <input [class.border-danger]="password.invalid && password.touched" [(ngModel)]="registerUserData.password" #password="ngModel" name="password" type="password" id="password" class="form-control" required>
+        <span *ngIf="password.invalid && password.touched" class="text-danger">Agrega tu contraseña.<br></span>
+
+        <button (click)="registerUser()" type="submit" class="btn btn-dark btn-block mt-2">
+          Registrame
+          <i class="fas fa-user-edit"></i>
+        </button>
+        <div class="dropdown-divider"></div>
+        <a class="nav-item nav-link text-center" [routerLink]="['/login']">¿Ya estás registrado?<br>Inicia Sesión</a>
+      </form>
+    </div>
+  </div>
